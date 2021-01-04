@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #222831;
+    color: #eeeeee;
+    /* background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjI1LjExIiBoZWlnaHQ9IjI5IiB2aWV3Qm94PSIwIDAgNjkuMjgyMDMyMzAyNzU1MSw4MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ5KSAiPjxyZWN0IGlkPSJwYXR0ZXJuLWJhY2tncm91bmQiIHdpZHRoPSI0MDAlIiBoZWlnaHQ9IjQwMCUiIGZpbGw9InJnYmEoMzQsIDQwLCA0OSwxKSI+PC9yZWN0PiA8cGF0aCBmaWxsPSJyZ2JhKDE3OCwgMjQ1LCAyMzQsMSkiIGQ9Ik01My42OSA1MSBMNTEuOTYgNTIgTDUwLjIzIDUxIEw1MC4yMyA0OSBMNTEuOTYgNDggTDUzLjY5IDQ5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDE3OCwgMjQ1LCAyMzQsMSkiIGQ9Ik0zNi4zNyA2MSBMMzQuNjQgNjIgTDMyLjkxIDYxIEwzMi45MSA1OSBMMzQuNjQgNTggTDM2LjM3IDU5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDE3OCwgMjQ1LCAyMzQsMSkiIGQ9Ik0xOS4wNSA1MSBMMTcuMzIgNTIgTDE1LjU5IDUxIEwxNS41OSA0OSBMMTcuMzIgNDggTDE5LjA1IDQ5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDE3OCwgMjQ1LCAyMzQsMSkiIGQ9Ik0xOS4wNSAzMSBMMTcuMzIgMzIgTDE1LjU5IDMxIEwxNS41OSAyOSBMMTcuMzIgMjggTDE5LjA1IDI5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDE3OCwgMjQ1LCAyMzQsMSkiIGQ9Ik0zNi4zNyAyMSBMMzQuNjQgMjIgTDMyLjkxIDIxIEwzMi45MSAxOSBMMzQuNjQgMTggTDM2LjM3IDE5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDE3OCwgMjQ1LCAyMzQsMSkiIGQ9Ik01My42OSAzMSBMNTEuOTYgMzIgTDUwLjIzIDMxIEw1MC4yMyAyOSBMNTEuOTYgMjggTDUzLjY5IDI5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48cGF0aCBmaWxsPSJyZ2JhKDI1MSwgMTgyLCAyMDYsMSkiIGQ9Ik0zNi4zNyA0MSBMMzQuNjQgNDIgTDMyLjkxIDQxIEwzMi45MSAzOSBMMzQuNjQgMzggTDM2LjM3IDM5IHoiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiPjwvcGF0aD48L3BhdHRlcm4+ICA8L2RlZnM+IDxyZWN0IGZpbGw9InVybCgjcGF0dGVybikiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiPjwvcmVjdD48L3N2Zz4="); */
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgNDAsNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NCkgIj48cmVjdCBpZD0icGF0dGVybi1iYWNrZ3JvdW5kIiB3aWR0aD0iNDAwJSIgaGVpZ2h0PSI0MDAlIiBmaWxsPSIjMmQzNzQ4Ij48L3JlY3Q+IDxjaXJjbGUgZmlsbD0iIzRhNTU2OCIgY3g9IjMxIiBjeT0iMjAiIHI9IjMiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0iIzRhNTU2OCIgY3g9IjkiIGN5PSIyMCIgcj0iMyI+PC9jaXJjbGU+PGNpcmNsZSBmaWxsPSIjNGE1NTY4IiBjeD0iMjAiIGN5PSIzMSIgcj0iMyI+PC9jaXJjbGU+PGNpcmNsZSBmaWxsPSIjNGE1NTY4IiBjeD0iMjAiIGN5PSI5IiByPSIzIj48L2NpcmNsZT48Y2lyY2xlIGZpbGw9IiMxYTIwMmMiIGN4PSIzNSIgY3k9IjUiIHI9IjMiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0iIzFhMjAyYyIgY3g9IjUiIGN5PSIzNSIgcj0iMyI+PC9jaXJjbGU+PGNpcmNsZSBmaWxsPSIjMWEyMDJjIiBjeD0iMzUiIGN5PSIzNSIgcj0iMyI+PC9jaXJjbGU+PGNpcmNsZSBmaWxsPSIjMWEyMDJjIiBjeD0iNSIgY3k9IjUiIHI9IjMiPjwvY2lyY2xlPjwvcGF0dGVybj4gIDwvZGVmcz4gPHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSI+PC9yZWN0Pjwvc3ZnPg==");
+}
+.pointer {
+    position: absolute;
+    top: 3px;
+    right: 14px;
+    transform: translateY(-12px);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #eee;
+    pointer-events: none;
+    transition: 0.05s;
+    mix-blend-mode: difference;
+    z-index: 100;
+}
+
+.brand {
+    background-color: #222831;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    position: fixed;
+    right: 25px;
+    z-index: 1;
+}
+.circular-logo {
+    color: #eeeeee;
+    position: absolute;
+    justify-items: center;
+    top: 2px;
+    right: 37px;
+    transform: translateX(-50%);
+    transition: 0.5s ease-out;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+}
+.initials {
+    color: #eeeeee;
+    position: absolute;
+    right: 23px;
+    top: 5px;
+    font-weight: bold;
+}
+
+.row-landing {
+    position: static;
+    transform: translateY(30vh);
+    height: 100vh;
+}
+
+.landing-text {
+    height: 150px;
+    color: #eeeeee;
+}
+#namaste {
+    animation: namaste-bounce 1s ease-out forwards;
+}
+
+#namaste-icon {
+    margin-left: 10px;
+    width: 70px;
+    height: 72px;
+    display: inline;
+    animation: namaste-icon 0.6s ease-in forwards;
+}
+
+.landing-text h1 {
+    display: inline-block;
+    margin-left: 20px;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 60px;
+    position: relative;
+    top: 20px;
+    opacity: 0;
+    animation: i-am 1s ease-in forwards;
+}
+#developer {
+    opacity: 0;
+    animation-name: show;
+    animation-timing-function: ease;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 3.2s;
+}
+
+.row h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid #eeeeee;
+}
+.row p {
+    font-size: 2rem;
+    text-align: justify;
+}
+.about-text {
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.projects-section {
+    margin-top: 5rem;
+}
+.projects-section .col-8 {
+    padding: 0px 0px;
+}
+.projects-flex {
+    display: flexbox;
+    flex-direction: row;
+    flex: content;
+}
+.flex-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    justify-content: space-around;
+}
+.card-deck {
+    margin-top: 2rem;
+}
+.card {
+    margin: 1rem;
+    height: 22.5rem;
+    background-color: #1e2736;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 16px #221b1b;
+    border-radius: 20px;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px;
+    padding: 0.4rem;
+}
+.card-img-top {
+    height: 200px;
+    width: 200px;
+    padding: 0.8rem;
+}
+.card-body button {
+    margin-bottom: -3rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin: 0px 0px;
+    margin-top: 1rem;
+    height: 56px;
+}
+.card-text {
+    font-size: 1rem !important;
+    margin: 0px 0px;
+}
+
+p.card-text {
+    text-align: center;
+}
+
+small.text-muted {
+    color: #eeeeee !important;
+}
+
+.tech-section {
+    margin-top: 5rem;
+}
+.tech-icons {
+    margin-top: 2rem;
+    vertical-align: middle;
+}
+.icon-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.icon-wrap svg {
+    margin: 1rem;
+}
+/* .tech-icons svg {
+    margin: auto 1rem;
+} */
+.social-section {
+    margin-top: 5rem;
+}
+.social-icons {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.social-icons svg {
+    margin: auto 0.5rem;
+}
+hr {
+    height: 1px;
+    background-color: #eeeeee;
+}
+
+#logo {
+    margin-top: 3px;
+    animation: fill 0.5s ease forwards 2.6s;
+}
+#logo #path-1-outside-1 {
+    animation: fill 0.8s ease forwards 3s;
+}
+
+#logo path:nth-child(2) {
+    stroke-dasharray: 296.95px;
+    stroke-dashoffset: 296.95px;
+    animation: line 1s ease forwards 1s;
+}
+#logo path:nth-child(3) {
+    stroke-dasharray: 272.38px;
+    stroke-dashoffset: 272.38;
+    animation: line 1s ease forwards 1.1s;
+}
+#logo path:nth-child(4) {
+    stroke-dasharray: 335.82;
+    stroke-dashoffset: 335.82;
+    animation: line 1s ease forwards 1.2s;
+}
+#logo path:nth-child(5) {
+    stroke-dasharray: 192.83;
+    stroke-dashoffset: 192.83;
+    animation: line 1s ease forwards 1.3s;
+}
+#logo path:nth-child(6) {
+    stroke-dasharray: 338;
+    stroke-dashoffset: 338;
+    animation: line 1s ease forwards 1.4s;
+}
+#logo path:nth-child(7) {
+    stroke-dasharray: 175;
+    stroke-dashoffset: 175;
+    animation: line 1s ease forwards 1.5s;
+}
+#logo path:nth-child(8) {
+    stroke-dasharray: 274.39;
+    stroke-dashoffset: 274.39;
+    animation: line 1s ease forwards 1.6s;
+}
+#logo path:nth-child(9) {
+    stroke-dasharray: 445;
+    stroke-dashoffset: 445;
+    animation: line 1s ease forwards 1.7s;
+}
+#logo path:nth-child(10) {
+    stroke-dasharray: 275;
+    stroke-dashoffset: 275;
+    animation: line 1s ease forwards 1.8s;
+}
+#logo path:nth-child(11) {
+    stroke-dasharray: 447;
+    stroke-dashoffset: 447;
+    animation: line 1s ease forwards 1.9s;
+}
+#logo path:nth-child(12) {
+    stroke-dasharray: 305;
+    stroke-dashoffset: 305;
+    animation: line 1s ease forwards 2.1s;
+}
+#logo path:nth-child(13) {
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    animation: line 1s ease forwards 2.1s;
+}
+
+@keyframes line {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: #eeeeee;
+    }
+}
+
+@keyframes namaste-bounce {
+    0% {
+        transform: translateY(-50vh);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(0px);
+        opacity: 0.5;
+    }
+    80% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes namaste-icon {
+    0% {
+        transform: translateY(50vh);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes i-am {
+    0% {
+        opacity: 0;
+        transform: translateX(100vh);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .pointer {
+        display: none;
+    }
+    .brand {
+        right: 0px;
+    }
+    #namaste {
+        width: 200px;
+        height: 35px;
+    }
+    #namaste-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .landing-text h1 {
+        font-size: 40px;
+        top: 10px;
+    }
+    #logo {
+        width: 350px;
+        height: 60px;
+    }
+    #developer {
+        width: 500px;
+        height: 50px;
+        margin-top: 0px;
+        transform: translateX(1px);
+    }
+    .row h1 {
+        font-size: 2rem;
+    }
+    .row p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+    .projects-section {
+        margin: 5rem auto;
+    }
+    .card-deck {
+        margin: 0px auto;
+    }
+    .card-title {
+        font-size: 1.5rem;
+    }
+    .card-text {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .pointer {
+        display: none;
+    }
+    body {
+        width: 100vw;
+    }
+    #namaste {
+        width: 150px;
+        height: 40px;
+    }
+    #namaste-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .landing-text h1 {
+        font-size: 30px;
+        top: 10px;
+        margin-left: 10px;
+    }
+    #logo {
+        width: 300px;
+        height: 50px;
+    }
+    #developer {
+        width: 300px;
+        height: 60px;
+    }
+    .row h1 {
+        font-size: 1.8rem;
+        font-weight: 800;
+    }
+    .row p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+}
